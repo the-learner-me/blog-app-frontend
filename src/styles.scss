@@ -1,0 +1,235 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$blog-client-primary: mat-palette($mat-indigo);
+$blog-client-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$blog-client-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$blog-client-theme: mat-light-theme((
+  color: (
+    primary: $blog-client-primary,
+    accent: $blog-client-accent,
+    warn: $blog-client-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($blog-client-theme);
+
+@import "~bootstrap/scss/bootstrap-grid";
+//@import "~quill/dist/quill.bubble.css";
+@import "~quill/dist/quill.snow.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: whitesmoke }
+
+
+.auth-container {
+  max-width: 20rem;
+  margin: 5rem auto 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.mt0-5rem {
+  margin-top: .5rem;
+}
+.mt1rem {
+  margin-top: 1rem;
+}
+
+.btn-loader {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.notify-error {
+  background-color: white;
+  border: 1px solid #ff4444;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "error";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #ff4444;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-warn {
+  background-color: white;
+  border: 1px solid #ffbb33;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "warning";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #ffbb33;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-info {
+  background-color: white;
+  border: 1px solid #33b5e5;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "info";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #33b5e5;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.notify-success {
+  background-color: white;
+  border: 1px solid #00C851;
+  color: #303030;
+  padding: 2rem;
+  position: relative;
+  &:after {
+    font-family: "Material Icons";
+    content: "check_circle";
+    position: absolute;
+    top: 1rem;
+    left: .6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #00C851;
+  }
+  span:first-child {
+    padding-left: 1.4rem;
+  }
+}
+
+.primary-container {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.secondary-container {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.mr1rem {
+  margin-right: 1rem;
+}
+.post-container {
+  h1 {
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+  }
+  a {
+    color: map-get($mat-indigo, 600);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.mb2rem {
+  margin-bottom: 2rem;
+}
+
+.pbt2rem {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.mb1rem {
+  margin-bottom: 1rem;
+}
+
+
+.ql-container {
+  font-size: 1rem;
+}
+
+.blog-content {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.comment-content {
+  padding: 1rem;
+  background-color: whitesmoke;
+}
+
+.comment-author {
+  padding-left: 1rem;
+  font-size: 85%;
+  margin-bottom: -.5rem;
+  font-style: italic;
+}
+
+.comment-date {
+  padding-right: .5rem;
+  font-size: 81%;
+  margin-top: -.5rem;
+  font-style: italic;
+}
+
+
+.active-link {
+  font-weight: bold;
+  border-left: 3px solid map-get($mat-indigo, 500);
+}
